@@ -39,7 +39,7 @@ public class ExtractOptional {
 			{
 				String str = visitor.optionalNode.toString();
 
-				visitor.optionalNode.toString(); // sets propertly visitor.optionalNode.crossProduct
+				visitor.optionalNode.toString(); // sets property visitor.optionalNode.crossProduct
 				if (!visitor.optionalNode.crossProduct) {
 					optQueries.add(str);
 				}
