@@ -187,7 +187,7 @@ Blazegraph can't load big files in a reasonable time, so we need to split the .n
   - add `-Dorg.wikidata.query.rdf.tool.rdf.RdfRepository.timeout=60` to the `exec java` command to specify the timeout (value is in seconds).
   - also change `-Dcom.bigdata.rdf.sparql.ast.QueryHints.analyticMaxMemoryPerQuery=0` which removes per-query memory limits.
 
-### 5. Load the splitted data
+### 5. Load the split data
 
 - Start the server: `./runBlazegraph.sh`
   - This process won't end until you interrupt it (Ctrl+C). Let this execute until the import ends. Run the next command in another terminal.

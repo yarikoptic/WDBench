@@ -38,12 +38,12 @@ def execute_query(session, cypher_query, query_number):
         results = session.read_transaction(lambda tx: tx.run(cypher_query).data())
         for _ in results:
             result_count += 1
-        elapsed_time = int((time.time() - start_time) * 1000) # Truncate to miliseconds
+        elapsed_time = int((time.time() - start_time) * 1000) # Truncate to milliseconds
         with open(RESUME_FILE, 'a', encoding='UTF-8') as output_file:
             output_file.write(f'{query_number},{result_count},OK,{elapsed_time}\n')
 
     except Exception as e:
-        elapsed_time = int((time.time() - start_time) * 1000) # Truncate to miliseconds
+        elapsed_time = int((time.time() - start_time) * 1000) # Truncate to milliseconds
         with open(RESUME_FILE, 'a', encoding='UTF-8') as output_file:
             output_file.write(f'{query_number},{result_count},ERROR({type(e).__name__}),{elapsed_time}\n')
         print(e)

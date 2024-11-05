@@ -31,7 +31,7 @@ public class GetCypherPathVisitor extends VisitorBase implements PathVisitor {
 
 	public ArrayList<Boolean> inverse = new ArrayList<Boolean>();
 
-	public ArrayList<String> sufixes = new ArrayList<String>();
+	public ArrayList<String> suffixes = new ArrayList<String>();
 
 	public ArrayList<String> alternatives = new ArrayList<String>();
 
@@ -53,7 +53,7 @@ public class GetCypherPathVisitor extends VisitorBase implements PathVisitor {
 		if (sequence.size() == 0) {
 			sequence.add(String.join("|", alternatives));
 			inverse.add(currentInverse);
-			sufixes.add(currentSuffix);
+			suffixes.add(currentSuffix);
 		}
 		subject = opPath.getTriplePath().getSubject();
 		object = opPath.getTriplePath().getObject();
@@ -90,7 +90,7 @@ public class GetCypherPathVisitor extends VisitorBase implements PathVisitor {
 				// )-[]->(
 				sb.append(")-[:");
 				sb.append(sequence.get(i));
-				sb.append(sufixes.get(i));
+				sb.append(suffixes.get(i));
 				sb.append("]->(");
 			}
 		}
@@ -152,7 +152,7 @@ public class GetCypherPathVisitor extends VisitorBase implements PathVisitor {
 		if (!(pathSeq.getLeft() instanceof P_Seq)) {
 			sequence.add(String.join("|", alternatives));
 			inverse.add(currentInverse);
-			sufixes.add(currentSuffix);
+			suffixes.add(currentSuffix);
 		}
 
 		currentInverse = originalInverse;
@@ -163,7 +163,7 @@ public class GetCypherPathVisitor extends VisitorBase implements PathVisitor {
 		if (!(pathSeq.getRight() instanceof P_Seq)) {
 			sequence.add(String.join("|", alternatives));
 			inverse.add(currentInverse);
-			sufixes.add(currentSuffix);
+			suffixes.add(currentSuffix);
 		}
 		currentInverse = originalInverse;
 
